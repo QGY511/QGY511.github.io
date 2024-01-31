@@ -55,12 +55,12 @@ const CONFIG = {
 			id: '1',
 			name: 'Github',
 			icon: 'github',
-			link: 'https://github.com/',
+			link: 'https://github.com/QGY511',
 		},
 		{
 			id: '2',
 			name: 'Mail',
-			icon: 'mail',
+			icon: 'fa-solid fa-envelopes-bulk',
 			link: 'https://mail.protonmail.com/',
 		},
 		{
