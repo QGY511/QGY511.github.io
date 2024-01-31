@@ -105,6 +105,8 @@ body {
   grid-template-rows: repeat(4, 1fr);
   grid-gap: 30px;
   padding: 20px;
+  position: relative;
+  
 }
 
 .card {
@@ -118,6 +120,50 @@ body {
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.35);
 }
 
+
+
+/* Added */
+.textcard {
+  background-color: var(--cards);
+  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.35);
+  border-radius: 5px;
+  display: flex;
+  position: absolute;
+
+  top: 55%; /* Vertically center the element within its container */
+  left: 55%;
+
+  width: 600px; /* Set the width to your desired size */
+  height: auto; 
+
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px; /* Add some padding to the card */
+  font-family: "Open Sans", sans-serif;
+  bottom: 40px;
+}
+
+
+.textcard:hover {
+  transform: translateY(-0.2rem);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.35);
+}
+
+.textcard p {
+  margin: 10px; /* Remove default margin */
+  font-size: 20px; /* Set the font size for the text */
+  color: var(--fg); /* Set the text color */
+  text-align: left;
+  font-family: "Open Sans", sans-serif;
+}
+
+
+/* Added */
+
+
+
+
 .timeBlock {
   grid-row: 1 / span 2;
   grid-column: 1 / span 2;
@@ -125,6 +171,12 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.timeContainer { /* New container for time specifically */
+  display: flex;
+  justify-content: center;
+  align-items: baseline; /* Adjusts items to align baselines; change as needed */
 }
 
 .weatherBlock {
@@ -155,29 +207,28 @@ body {
   justify-content: center;
 }
 
-#hour,
-#separator,
-#minutes {
-  font-size: var(--fg-primary);
+#hour, #separator, #minutes, #month, #day {
+  margin-top: 0; /* Removes additional top margin */
   font-weight: bolder;
   color: var(--fg);
 }
 
-#month,
-#day {
-  font-size: var(--fg-date);
-  font-weight: bold;
-  color: var(--fg);
+#hour, #separator, #minutes {
+  font-size: var(--fg-primary);
 }
 
-#day {
-  margin-left: 1.5rem;
+#month, #day {
+  font-size: var(--fg-date);
+  margin-left: 20px; /* Adjust if keeping them inline */
 }
 
 #greetings {
   font-size: var(--fg-secondary);
   color: var(--fg);
+  text-align: center; /* Center text */
+  margin-top: 0px;
 }
+
 
 .weatherIcon img {
   width: 70px;
@@ -361,16 +412,4 @@ body {
     padding-right: 100px;
   }
 
-  .profilePhoto {
-    width: 50px; /* Adjust size as needed */
-    height: 50px; /* Adjust size as needed */
-    border-radius: 50%; /* Makes it circular */
-    overflow: hidden; /* Ensures the image stays within the circular boundary */
-  }
-
-  .circularImage {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures the image covers the full circle */
-  }
 }

@@ -11,7 +11,7 @@ const CONFIG = {
 	// └─┘┴ ┴└─┘┴└─┘└─┘
 
 	// General
-	name: 'I\'m Guanyu Qian ',
+	name: 'I\'m Guanyu Qian (钱冠宇) ',
 	imageBackground: false,
 	openInNewTab: true,
 	twelveHourFormat: false,
@@ -31,9 +31,9 @@ const CONFIG = {
 	weatherUnit: 'C', // 'F', 'C'
 	language: 'en', // More languages in https://openweathermap.org/current#multi
 
-	trackLocation: true, // If false or an error occurs, the app will use the lat/lon below
-	defaultLatitude: '37.775',
-	defaultLongitude: '-122.419',
+	trackLocation: false, // If false or an error occurs, the app will use the lat/lon below
+	defaultLatitude: '34.05611',
+	defaultLongitude: '-118.42972',
 
 	// Autochange
 	autoChangeTheme: true,
@@ -60,8 +60,8 @@ const CONFIG = {
 		{
 			id: '2',
 			name: 'Mail',
-			icon: 'fa-solid fa-envelopes-bulk',
-			link: 'https://mail.protonmail.com/',
+			icon: 'mails',
+			link: 'mailto:gyqian@ucla.edu',
 		},
 		{
 			id: '3',
@@ -128,6 +128,12 @@ const CONFIG = {
 		},
 	],
 
+	textBoxes: [
+		'Text Box 1 Content',
+		'Text Box 2 Content',
+		'Text Box 3 Content',
+		// Add more text box contents as needed
+	],
 	// ┬  ┬┌─┐┌┬┐┌─┐
 	// │  │└─┐ │ └─┐
 	// ┴─┘┴└─┘ ┴ └─┘
