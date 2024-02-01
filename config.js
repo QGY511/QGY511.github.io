@@ -65,27 +65,27 @@ const CONFIG = {
 		},
 		{
 			id: '3',
-			name: 'Todoist',
-			icon: 'trello',
-			link: 'https://todoist.com',
+			name: '',
+			icon: 'audio-lines',
+			link: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
 		},
 		{
 			id: '4',
-			name: 'Calendar',
-			icon: 'calendar',
-			link: 'https://calendar.google.com/calendar/r',
+			name: 'CV',
+			icon: 'notebook-text',
+			link: "assets/cv/Guanyu Qian_Resume.pdf",
 		},
 		{
 			id: '5',
-			name: 'Reddit',
-			icon: 'glasses',
-			link: 'https://reddit.com',
+			name: 'Google Scholar',
+			icon: 'graduation-cap',
+			link: 'https://scholar.google.com/',
 		},
 		{
 			id: '6',
-			name: 'Odysee',
-			icon: 'youtube',
-			link: 'https://odysee.com/',
+			name: 'Lab',
+			icon: 'briefcase',
+			link: 'https://www.ee.ucla.edu/',
 		},
 	],
 
@@ -134,6 +134,8 @@ const CONFIG = {
 		'Text Box 3 Content',
 		// Add more text box contents as needed
 	],
+
+
 	// ┬  ┬┌─┐┌┬┐┌─┐
 	// │  │└─┐ │ └─┐
 	// ┴─┘┴└─┘ ┴ └─┘
