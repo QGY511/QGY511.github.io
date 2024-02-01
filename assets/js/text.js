@@ -4,11 +4,11 @@ const generateTextBoxes = () => {
   const textBoxes = CONFIG.textBoxes;
   for (const text of textBoxes) {
     const textBoxDiv = document.createElement('div');
-    textBoxDiv.className = 'textbox-container'; // Updated class name
+    textBoxDiv.className = 'textBoxContainer';
     
     const textBox = document.createElement('textarea');
-    textBox.className = 'textbox'; // Updated class name
-    textBox.placeholder = text; // Use placeholder instead of textContent
+    textBox.className = 'textBox';
+    textBox.textContent = text;
     
     textBoxDiv.appendChild(textBox);
     textBoxContainer.appendChild(textBoxDiv);
