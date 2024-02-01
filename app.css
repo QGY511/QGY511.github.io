@@ -98,15 +98,15 @@ body {
 }
 
 .container {
-  width: 145vh;
-  height: 85vh;
+  width: 100vw; /* 100% of the viewport width */
+  height: 100vh; /* 100% of the viewport height */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
   grid-gap: 30px;
   padding: 20px;
   position: relative;
-  max-width: 1200px;
+  max-width: none; /* Remove the max-width restriction */
 }
 
 .card {
@@ -144,8 +144,8 @@ body {
   box-shadow: 0 5px 7px rgba(0, 0, 0, 0.35);
   border-radius: 5px;
   display: flex;
-  width: 600px; /* Set the width to your desired size */
-  height: auto;
+  width: 100%; /* Set the width to your desired size */
+  height: 70%;
 }
 
 .textcard:hover {
@@ -155,7 +155,7 @@ body {
 
 .textcard p {
   margin: 10px; /* Remove default margin */
-  font-size: 20px; /* Set the font size for the text */
+  font-size: 1.25vw; /* Set the font size for the text */
   color: var(--fg); /* Set the text color */
   text-align: left;
   font-family: "Open Sans", sans-serif;
@@ -168,7 +168,26 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-right: 50px;
+  margin-top: 50px;
+  margin-right: 550px;
+  position: relative;
+}
+
+.profilePhoto img {
+  position: absolute;
+  bottom: 0;
+  width: clamp(
+    150px,
+    30vw,
+    300px
+  ); /* Adjusts size with viewport, within min-max */
+  height: clamp(
+    150px,
+    30vw,
+    300px
+  ); /* Keep square aspect ratio with same values */
+  border-radius: 50%; /* Keeps the circular shape */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
 }
 
 .picContainer {
@@ -184,7 +203,18 @@ body {
   flex-direction: column;
   align-items: center; /* Left-align items horizontally */
   justify-content: flex-end; /* Align items towards the bottom vertically */
-  margin-left: 150px; /* Adjust as needed */
+  margin-left: 350px; /* Adjust as needed */
+}
+
+.logoImage {
+  width: clamp(
+    100px,
+    15vw,
+    125px
+  ); /* Adjust size to match the profile pic responsiveness */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 50%; /* Circular shape */
+  object-fit: cover; /* Cover the area of the element without distorting the image */
 }
 
 .logoContainer {
