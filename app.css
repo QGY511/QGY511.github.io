@@ -464,6 +464,7 @@ body {
   .container {
     grid-gap: 20px;
     padding: 40px;
+    justify-content: center;
   }
 
   .timeBlock {
@@ -492,7 +493,7 @@ body {
     padding-left: 100px;
     padding-right: 100px;
   }
-  
+
   .textBlock, .logoBlock, .picBlock {
     display: none; /* Hide these elements on smaller screens */
   }
