@@ -492,4 +492,8 @@ body {
     padding-left: 100px;
     padding-right: 100px;
   }
+  
+  .textBlock, .logoBlock, .picBlock {
+    display: none; /* Hide these elements on smaller screens */
+  }
 }
