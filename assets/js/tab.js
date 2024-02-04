@@ -1,29 +1,38 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Function to remove 'active' class from all tabs
-  function deactivateAllTabs() {
-    document.querySelectorAll('.topTab .tablinks').forEach(tab => {
-      tab.classList.remove('active');
-    });
-  }
+  const deactivateAllTabs = () => {
+    document.querySelectorAll('.topTab .tablinks').forEach(tab => tab.classList.remove('active'));
+  };
 
-  // Function to activate a tab based on a condition
-  function activateTab(tab) {
-    deactivateAllTabs(); // First, make sure all tabs are deactivated
-    tab.classList.add('active'); // Then, activate the relevant tab
-  }
+  const activateTab = (tab) => {
+    deactivateAllTabs();
+    tab.classList.add('active');
+  };
 
-  // Event listener for tab clicks
+  // Enhance path comparison to handle different homepage scenarios
+  const isHomePage = (path) => {
+    const normalizedPath = path.endsWith('/') ? path : `${path}/`;
+    return ['/index.html/', '/'].includes(normalizedPath.toLowerCase());
+  };
+
+  // Determine the current page's path for comparison
+  const currentPagePath = `${window.location.pathname}/`.toLowerCase();
+
+  // Attempt to activate the tab corresponding to the current page or default to Home
+  let homeTab;
+  let activeTabSet = false;
   document.querySelectorAll('.topTab .tablinks').forEach(tab => {
-    tab.addEventListener('click', function() {
-      activateTab(this); // Activate clicked tab
-    });
-  });
-
-  // Automatically activate tab based on the current URL
-  const currentPage = window.location.pathname.split('/').pop(); // Gets the last part of the URL
-  document.querySelectorAll('.topTab .tablinks').forEach(tab => {
-    if (tab.getAttribute('href').includes(currentPage)) {
+    const tabPath = `${new URL(tab.href).pathname}/`.toLowerCase();
+    if (tabPath === currentPagePath || (isHomePage(currentPagePath) && tabPath.includes('index.html/'))) {
       activateTab(tab);
+      activeTabSet = true;
+    }
+    if (tab.href.includes('index.html')) {
+      homeTab = tab; // Identify the Home tab for potential fallback activation
     }
   });
+
+  // Fallback to activating the Home tab if no specific tab was activated
+  if (!activeTabSet && homeTab) {
+    activateTab(homeTab);
+  }
 });
