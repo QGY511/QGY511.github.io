@@ -457,7 +457,6 @@ body {
   color: var(--sfg);
 }
 
-
 .topTab {
   overflow: hidden;
   background-color: #202020;
@@ -489,7 +488,7 @@ body {
 /* Style for active tab link */
 .topTab .tablinks.active {
   background-color: #181818; /* Accent color for hover and active states */
-  color: #ffffff; 
+  color: #ffffff;
 }
 
 .topTab .tablinks.active {
@@ -501,7 +500,6 @@ body {
   padding: 6px 12px;
   margin-top: 50px; /* Push down content to make space for the top tabs */
 }
-
 
 /* M E D I A - Q U E R I E S */
 
@@ -539,7 +537,13 @@ body {
     padding-right: 100px;
   }
 
-  .textBlock, .logoBlock, .picBlock {
+  .textBlock,
+  .logoBlock,
+  .picBlock {
     display: none; /* Hide these elements on smaller screens */
+  }
+
+  .topTab {
+    display: none;
   }
 }
