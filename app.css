@@ -81,16 +81,6 @@ body {
   background-size: cover;
 }
 
-#themeButton {
-  position: absolute;
-  margin: 2em 2em 0 0;
-  right: 0;
-  top: 50px;
-  color: var(--fg);
-  border: none;
-  cursor: pointer;
-  background-color: #00000000;
-}
 
 #themeIcon {
   width: 25px;
@@ -467,6 +457,17 @@ body {
   padding-left: 0; /* Reset padding */
   margin-left: 0; /* Ensure it starts from the very left */
   text-align: left; /* Aligns inline or inline-block children to the left */
+}
+
+#themeButton {
+  position: absolute;
+  margin: 2em 2em 0 0;
+  right: 0;
+  bottom: 1vh;
+  color: var(--fg);
+  border: none;
+  cursor: pointer;
+  background-color: #00000000;
 }
 
 .topTab .tablinks {
