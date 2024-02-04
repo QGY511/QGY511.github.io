@@ -457,6 +457,52 @@ body {
   color: var(--sfg);
 }
 
+
+.topTab {
+  overflow: hidden;
+  background-color: #202020;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  padding-left: 0; /* Reset padding */
+  margin-left: 0; /* Ensure it starts from the very left */
+  text-align: left; /* Aligns inline or inline-block children to the left */
+}
+
+.topTab .tablinks {
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+  background-color: #202020; /* Dark background for tabs */
+  color: #b1b1b1; /* Lighter text for contrast */
+}
+
+.topTab .tablinks:hover {
+  background-color: #191919; /* Darker grey on hover */
+}
+
+/* Style for active tab link */
+.topTab .tablinks.active {
+  background-color: #181818; /* Accent color for hover and active states */
+  color: #ffffff; 
+}
+
+.topTab .tablinks.active {
+  font-weight: 700; /* Bold weight for active tab */
+}
+
+.tabcontent {
+  display: none; /* Hide content by default */
+  padding: 6px 12px;
+  margin-top: 50px; /* Push down content to make space for the top tabs */
+}
+
+
 /* M E D I A - Q U E R I E S */
 
 @media only screen and (max-width: 68.75em) {
