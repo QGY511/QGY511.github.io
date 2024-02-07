@@ -181,22 +181,13 @@ body {
 }
 
 .profilePhoto img {
-  /* Remove position, left, and bottom properties */
-  width: clamp(150px, 30vw, 300px); /* Responsive width */
-  height: clamp(
-    150px,
-    30vw,
-    300px
-  ); /* Responsive height, maintain aspect ratio */
-  border-radius: 50%; /* Circular image */
-  object-fit: cover; /* Cover fit to avoid distortion */
+  width: 100%; /* Make the image width always 100% of .piccard */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 50%; /* Keeps the circular shape */
+  object-fit: cover; /* Ensures the image covers the area without distortion, maintaining aspect ratio */
 }
 
-.picContainer {
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-}
+
 
 .logoBlock {
   grid-row: 1 / span 2;
@@ -206,6 +197,18 @@ body {
   align-items: center; /* Left-align items horizontally */
   justify-content: flex-end; /* Align items towards the bottom vertically */
   margin-left: 150px; /* Adjust as needed */
+}
+
+
+.logocard {
+  background-color: var(--cards);
+  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.35);
+  border-radius: 5px;
+}
+
+.logocard:hover {
+  transform: translateY(-0.2rem);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.35);
 }
 
 .logoImage {
@@ -219,23 +222,6 @@ body {
   object-fit: cover; /* Cover the area of the element without distorting the image */
 }
 
-.logoContainer {
-  /* New container for time specifically */
-  display: flex;
-  justify-content: center;
-  align-items: baseline; /* Adjusts items to align baselines; change as needed */
-}
-
-.logocard {
-  background-color: var(--cards);
-  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.35);
-  border-radius: 5px;
-}
-
-.logocard:hover {
-  transform: translateY(-0.2rem);
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.35);
-}
 
 /* Added */
 
