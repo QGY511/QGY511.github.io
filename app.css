@@ -121,11 +121,6 @@ body {
   margin-top: 20px;
 }
 
-.textContainer {
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-}
 
 .textcard {
   background-color: var(--cards);
