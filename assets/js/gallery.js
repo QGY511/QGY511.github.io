@@ -12,40 +12,38 @@ document.addEventListener("DOMContentLoaded", () => {
   function addImagesToContainer(urls) {
     urls.forEach((url) => {
       const img = document.createElement("img");
-      img.onload = () => {
-        // Check if all images are loaded
-        if (imageContainer.querySelectorAll("img").length === urls.length) {
-          startAutoScroll(); // Start scrolling once all images are loaded
-        }
-      };
       img.src = url;
-      img.className = "scrollingImage";
+      img.className = "scrollingImage"; // Apply the CSS class for styling
       imageContainer.appendChild(img);
     });
   }
 
   function startAutoScroll() {
-    let delay = 0; // Introduce a delay counter
-    const scrollSpeed = 3; // Increase for slower speed, controls delay frames
+    let lastFrameTime = 0;
+    const pixelsPerSecond = 100; // Adjust for desired speed, lower = slower
 
-    function scroll() {
-      delay++;
-      if (delay >= scrollSpeed) {
-        if (
-          imageContainer.scrollTop <
-          imageContainer.scrollHeight - imageContainer.clientHeight
-        ) {
-          imageContainer.scrollTop += 1;
-        } else {
-          imageContainer.scrollTop = 0; // Reset to top when reaching the bottom
-        }
-        delay = 0; // Reset delay
+    function scroll(timestamp) {
+      if (!lastFrameTime) lastFrameTime = timestamp;
+      const deltaTime = timestamp - lastFrameTime;
+
+      // Calculate how much to scroll based on the elapsed time since the last frame
+      const scrollAmount = (pixelsPerSecond * deltaTime) / 1000;
+      if (
+        imageContainer.scrollTop <
+        imageContainer.scrollHeight - imageContainer.clientHeight
+      ) {
+        imageContainer.scrollTop += scrollAmount;
+      } else {
+        imageContainer.scrollTop = 0; // Reset to top when reaching the bottom
       }
+
+      lastFrameTime = timestamp;
       requestAnimationFrame(scroll);
     }
 
-    scroll();
+    requestAnimationFrame(scroll);
   }
 
   addImagesToContainer(imageUrls);
+  startAutoScroll();
 });
