@@ -200,7 +200,7 @@ body {
   border-radius: 5px;
   overflow: hidden; /* Keeps everything neat */
   /* Ensure width and height are set to contain the image as you want */
-  width: 45%;
+  width: 40%;
   height: 100%;
 }
 
