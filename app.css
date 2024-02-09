@@ -578,9 +578,22 @@ body {
 }
 
 .bento-block.longR {
-  grid-column: 4 / span 1; /* Assuming a 3-column layout */
+  grid-column: 4 / span 1;
   grid-row: -1 / span 6;
+  overflow-y: scroll; /* Enables vertical scrolling */
+  display: flex;
+  flex-direction: column; /* Stack images vertically */
+  align-items: center; /* Center images horizontally */
 }
+
+.scrollingImage {
+  margin-top: 5px;
+  width: 100%; /* Make the image width always 100% of .piccard */
+  height: 100%; /* Maintain aspect ratio */
+  border-radius: 50%; /* Keeps the circular shape */
+  object-fit: cover; /* Ensures the image covers the area without distortion, maintaining aspect ratio */
+}
+
 
 .bento-block.longL {
   grid-column: -20 / span 1; /* Assuming a 3-column layout */
