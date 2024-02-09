@@ -121,7 +121,6 @@ body {
   margin-top: 20px;
 }
 
-
 .textcard {
   background-color: var(--cards);
   box-shadow: 0 5px 7px rgba(0, 0, 0, 0.35);
@@ -527,6 +526,22 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+.bento-block ul {
+  margin: 10px;
+  font-size: 1.25vw;
+  color: var(--fg);
+  text-align: left;
+  font-family: "Open Sans", sans-serif;
+}
+
+.bento-block h2 {
+  margin: 10px;
+  font-size: 1.5vw;
+  color: var(--fg);
+  text-align: left;
+  font-family: "Open Sans", sans-serif;
+}
+
 /* Size variations */
 .bento-block.small {
   grid-column: span 1; /* Smaller blocks */
@@ -552,6 +567,23 @@ body {
   /* Place in the last column of the first row */
   grid-column: 4; /* Assuming a 3-column layout */
   grid-row: 1;
+}
+
+/* Size variations */
+
+.bento-block.proj {
+  grid-column: span 3; /* Larger blocks */
+  grid-row: span 2;
+}
+
+.bento-block.longR {
+  grid-column: 4 / span 1; /* Assuming a 3-column layout */
+  grid-row: -1 / span 6;
+}
+
+.bento-block.longL {
+  grid-column: -20 / span 1; /* Assuming a 3-column layout */
+  grid-row: -20 / span 1;
 }
 
 /* M E D I A - Q U E R I E S */
