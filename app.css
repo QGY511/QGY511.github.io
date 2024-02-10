@@ -211,6 +211,7 @@ body {
 
 .logoImage {
   margin-top: 5px;
+  margin-left: 1px;
   width: 100%; /* Make the image width always 100% of .piccard */
   height: 100%; /* Maintain aspect ratio */
   border-radius: 50%; /* Keeps the circular shape */
@@ -593,7 +594,6 @@ body {
   border-radius: 50%; /* Keeps the circular shape */
   object-fit: cover; /* Ensures the image covers the area without distortion, maintaining aspect ratio */
 }
-
 
 .bento-block.longL {
   grid-column: -20 / span 1; /* Assuming a 3-column layout */
