@@ -530,7 +530,7 @@ body {
 
 .bento-block ul {
   margin-left: 0; /* Adjust or remove left margin */
-  padding-left: 0px; /* Adjust padding to ensure bullets stay inside */
+  padding-left: 10px; /* Adjust padding to ensure bullets stay inside */
   list-style-position: inside; /* Optional: Moves bullets inside the content area */
   font-size: 1.25vw;
   color: var(--fg);
