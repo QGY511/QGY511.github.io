@@ -176,7 +176,6 @@ body {
 .profilePhoto img {
   width: 100%; /* Make the image width always 100% of .piccard */
   height: 100%; /* Maintain aspect ratio */
-  border-radius: 50%; /* Keeps the circular shape */
   object-fit: cover; /* Ensures the image covers the area without distortion, maintaining aspect ratio */
 }
 
