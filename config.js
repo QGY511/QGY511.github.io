@@ -85,7 +85,7 @@ const CONFIG = {
 			id: '6',
 			name: 'Lab',
 			icon: 'briefcase',
-			link: 'https://www.ee.ucla.edu/',
+			link: 'https://sites.google.com/umich.edu/xiaofancui/people?authuser=0',
 		},
 	],
 
