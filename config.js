@@ -73,7 +73,7 @@ const CONFIG = {
 			id: '4',
 			name: 'CV',
 			icon: 'notebook-text',
-			link: "assets/cv/Guanyu Qian_Resume.pdf",
+			link: "assets/cv/Guanyu Qian_CV.pdf",
 		},
 		{
 			id: '5',
