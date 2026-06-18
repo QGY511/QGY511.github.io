@@ -849,6 +849,7 @@ body {
   flex: 1; /* fill the right column so its bottom aligns with the callout */
   display: flex;
   flex-direction: column;
+  justify-content: center; /* center content: equal gap above photo & below icons */
   border: 1px solid var(--border);
   border-radius: 12px;
   background-color: var(--cards);
@@ -857,7 +858,7 @@ body {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
 }
 .profile-photo {
-  flex: 1 1 220px; /* grow to fill spare height; never collapse below 220px */
+  flex: 0 0 220px; /* fixed height so spare space splits evenly top & bottom */
   width: 100%;
   border-radius: 8px;
   overflow: hidden;
@@ -985,6 +986,13 @@ body {
   height: 3px;
   background-color: var(--accent);
   border-radius: 3px;
+}
+
+/* Optional muted subtitle under a section heading */
+.section-subtitle {
+  margin: -0.6rem 0 1.6rem 0;
+  font-size: 1rem;
+  color: var(--sfg);
 }
 
 /* Per-section bento layouts (tidy, content-driven mosaics) */
