@@ -15,6 +15,22 @@ document.addEventListener('DOMContentLoaded', () => {
     if (link) link.classList.add('active');
   };
 
+  // Hamburger menu (mobile): toggle the dropdown and close it after a tap.
+  const topTab = document.querySelector('.topTab');
+  const navToggle = document.getElementById('navToggle');
+  if (topTab && navToggle) {
+    navToggle.addEventListener('click', () => {
+      const open = topTab.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(open));
+    });
+    links.forEach(link =>
+      link.addEventListener('click', () => {
+        topTab.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      })
+    );
+  }
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach(entry => {

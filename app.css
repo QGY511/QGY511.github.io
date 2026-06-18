@@ -528,7 +528,8 @@ body {
   border-radius: 2px;
 }
 
-#themeButton {
+#themeButton,
+.navToggle {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -537,6 +538,15 @@ body {
   cursor: pointer;
   background: none;
   padding: 6px;
+}
+
+/* Hamburger only appears on small screens */
+.navToggle {
+  display: none;
+}
+.navToggle svg {
+  width: 26px;
+  height: 26px;
 }
 
 .tabcontent {
@@ -1093,6 +1103,33 @@ body {
   }
   .hero-right {
     max-width: 360px;
+  }
+
+  /* Collapse the tabs into a hamburger dropdown */
+  .navToggle {
+    display: flex;
+  }
+  .navLinks {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.5rem 2rem 1rem;
+    background-color: var(--background);
+    border-bottom: 1px solid var(--border);
+  }
+  .topTab.open .navLinks {
+    display: flex;
+  }
+  .topTab .tablinks {
+    padding: 12px 4px;
+  }
+  .topTab .tablinks.active::after {
+    display: none; /* use color, not an underline, in the vertical menu */
   }
 }
 
