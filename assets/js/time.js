@@ -1,18 +1,16 @@
 // ┌┬┐┬┌┬┐┌─┐
 //  │ ││││├┤
 //  ┴ ┴┴ ┴└─┘
-// Set time and Date
+// Set time and Date (updates every second)
 
-window.onload = displayClock();
 function displayClock() {
 	const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-	var d = new Date();
-	var mm = monthNames[d.getMonth()];
-	var dd = d.getDate();
-	var min = (mins = ('0' + d.getMinutes()).slice(-2));
-	var hh = d.getHours();
-	var ampm = '';
+	const d = new Date();
+	const min = ('0' + d.getMinutes()).slice(-2);
+	const sec = ('0' + d.getSeconds()).slice(-2);
+	let hh = d.getHours();
+	let ampm = '';
 
 	if (CONFIG.twelveHourFormat) {
 		ampm = hh >= 12 ? ' pm' : ' am';
@@ -20,12 +18,23 @@ function displayClock() {
 		hh = hh ? hh : 12;
 	}
 
-	document.getElementById('hour').innerText = hh;
-	document.getElementById('separator').innerHTML = ' : ';
-	document.getElementById('minutes').innerText = min + ampm;
+	const set = (id, value, html = false) => {
+		const el = document.getElementById(id);
+		if (!el) return;
+		if (html) el.innerHTML = value;
+		else el.innerText = value;
+	};
 
-	document.getElementById('month').innerText = mm;
-	document.getElementById('day').innerText = dd;
+	set('hour', hh);
+	set('separator', ' : ', true);
+	set('minutes', min);
+	set('seconds', sec + ampm);
+
+	// Optional date elements (only if present on the page)
+	set('month', monthNames[d.getMonth()]);
+	set('day', d.getDate());
 
 	setTimeout(displayClock, 1000);
 }
+
+displayClock();
