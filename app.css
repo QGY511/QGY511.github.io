@@ -486,7 +486,8 @@ body {
 .navLogo {
   width: 28px;
   height: 28px;
-  object-fit: contain;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .navLinks {
@@ -763,6 +764,7 @@ body {
 .hero-right {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 .hero .clock {
   justify-content: flex-start;
@@ -847,6 +849,7 @@ body {
 /* Profile card */
 .profile-card {
   flex: 1; /* fill the right column so its bottom aligns with the callout */
+  height: 100%; /* definite height so the content can center against it */
   display: flex;
   flex-direction: column;
   justify-content: center; /* center content: equal gap above photo & below icons */
