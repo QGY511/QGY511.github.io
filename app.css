@@ -17,13 +17,15 @@
   --icon: 3vh; /* Icon Size */
 
   /* Fonts Color */
-  --fg: #3a3a3a; /* Foreground color */
-  --sfg: #494949; /* Sceondary Foreground color */
+  --fg: #2b2f36; /* Foreground color */
+  --sfg: #5b626d; /* Secondary / muted foreground */
 
   /* Light Colors  */
-  --accent: #57a0d9; /* Hover color */
-  --background: #f5f5f5; /* Background color */
-  --cards: #e4e6e6; /* Cards color */
+  --accent: #2e5cab; /* Deep blue accent */
+  --accent-soft: rgba(46, 92, 171, 0.12); /* Tinted accent fill */
+  --background: #eef1f5; /* Background color */
+  --cards: #ffffff; /* Cards color */
+  --border: #d8dee7; /* Card borders */
 
   /* Image background  */
   --imgbg: url(assets/background.jpg); /* Image URL */
@@ -35,13 +37,15 @@
 
 .darktheme {
   /* Dark Colors  */
-  --accent: #57a0d9; /* Hover color */
-  --background: #19171a; /* Background color */
-  --cards: #201e21; /* Cards color */
+  --accent: #4f8be0; /* Deep blue accent (brightened for dark bg) */
+  --accent-soft: rgba(79, 139, 224, 0.16); /* Tinted accent fill */
+  --background: #14161b; /* Background color */
+  --cards: #1b1e25; /* Cards color */
+  --border: #2b303b; /* Card borders */
 
   /* Fonts Color */
   --fg: #d8dee9; /* Foreground color */
-  --sfg: #2c292e; /* Secondary Foreground color */
+  --sfg: #9aa3b2; /* Secondary / muted foreground */
 
   /* Image background  */
   --imgcol: linear-gradient(
@@ -60,13 +64,25 @@
   transition: 0.2s ease-in-out;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 60px; /* keep section tops clear of the fixed nav */
+}
+
 body {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
   background-color: var(--background);
+}
+
+/* Each former page is now a full-height scroll section */
+.page-section {
+  width: 100%;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 60px; /* clears the fixed top nav */
 }
 
 .notransition {
@@ -440,52 +456,84 @@ body {
 }
 
 .topTab {
-  overflow: hidden;
-  background-color: #202020;
   position: fixed;
-  width: 100%;
   top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
   z-index: 1000;
-  padding-left: 0; /* Reset padding */
-  margin-left: 0; /* Ensure it starts from the very left */
-  text-align: left; /* Aligns inline or inline-block children to the left */
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0 2rem;
+  background-color: var(--background);
+  border-bottom: 1px solid var(--border);
 }
 
-#themeButton {
-  position: absolute;
-  margin: 2em 2em 0 0;
-  right: 0;
-  bottom: 1vh;
+.navBrand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
   color: var(--fg);
-  border: none;
-  cursor: pointer;
-  background-color: #00000000;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-right: auto; /* push links + toggle to the right */
+}
+
+.navLogo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .topTab .tablinks {
-  float: left;
-  border: none;
-  outline: none;
+  position: relative;
+  text-decoration: none;
   cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-  font-size: 17px;
-  background-color: #202020; /* Dark background for tabs */
-  color: #b1b1b1; /* Lighter text for contrast */
+  padding: 6px 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--sfg);
+  background: none;
+  border: none;
+  transition: color 0.2s ease;
 }
 
 .topTab .tablinks:hover {
-  background-color: #191919; /* Darker grey on hover */
-}
-
-/* Style for active tab link */
-.topTab .tablinks.active {
-  background-color: #181818; /* Accent color for hover and active states */
-  color: #ffffff;
+  color: var(--fg);
 }
 
 .topTab .tablinks.active {
-  font-weight: 700; /* Bold weight for active tab */
+  color: var(--accent);
+}
+
+.topTab .tablinks.active::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: -2px;
+  height: 2px;
+  background-color: var(--accent);
+  border-radius: 2px;
+}
+
+#themeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg);
+  border: none;
+  cursor: pointer;
+  background: none;
+  padding: 6px;
 }
 
 .tabcontent {
@@ -660,8 +708,224 @@ body {
   .picBlock {
     display: none; /* Hide these elements on smaller screens */
   }
+}
 
-  .topTab {
-    display: none;
+/* ───────────────────────────────────────────────
+   R E F E R E N C E - S T Y L E   C O M P O N E N T S
+   ─────────────────────────────────────────────── */
+
+/* Headings with an accent underline */
+.section-title,
+.bento-block h2 {
+  position: relative;
+  display: inline-block;
+  color: var(--fg);
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.4rem;
+  font-family: "Open Sans", sans-serif;
+}
+.section-title {
+  font-size: 1.9rem;
+}
+.bento-block h2 {
+  font-size: 1.3rem;
+}
+.section-title::after,
+.bento-block h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 64px;
+  height: 3px;
+  background-color: var(--accent);
+  border-radius: 3px;
+}
+
+/* Hero (home) */
+.hero {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+.hero-left {
+  display: flex;
+  flex-direction: column;
+}
+.hero .clock {
+  justify-content: flex-start;
+}
+.hero #hour,
+.hero #separator,
+.hero #minutes {
+  font-size: 3.2rem;
+}
+.hero #greetings {
+  text-align: left;
+  font-size: 1rem;
+  color: var(--sfg);
+  margin-bottom: 1.5rem;
+}
+.lead {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--fg);
+  margin-bottom: 1.5rem;
+}
+.accent {
+  color: var(--accent);
+  font-weight: 600;
+}
+.label {
+  font-weight: 700;
+  color: var(--fg);
+  margin-bottom: 0.8rem;
+}
+
+/* Research-area pills */
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.8rem;
+}
+.pill {
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: var(--sfg);
+  background-color: var(--cards);
+}
+.pill:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Callout box with left accent border */
+.callout {
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  background-color: var(--cards);
+}
+.callout .badge {
+  display: inline-block;
+  background-color: var(--accent);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+}
+.callout p {
+  display: inline;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--fg);
+}
+
+/* Profile card */
+.profile-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background-color: var(--cards);
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+.profile-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.profile-name {
+  font-size: 1.3rem;
+  color: var(--fg);
+  margin-bottom: 0.2rem;
+}
+.profile-title {
+  color: var(--fg);
+  margin-bottom: 0.6rem;
+}
+.profile-affil {
+  font-size: 0.9rem;
+  color: var(--sfg);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+/* Social-icon row inside the profile card (generated by buttons.js) */
+.profile-links .buttonsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  width: auto;
+  height: auto;
+  padding: 0;
+}
+.profile-links .button {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background-color: transparent;
+  box-shadow: none;
+}
+.profile-links .button:hover {
+  background-color: var(--accent);
+  transform: none;
+}
+.profile-links .button:hover svg {
+  stroke: #fff;
+}
+.profile-links .buttonIcon {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+/* Bordered, subtly-shadowed bento cards + centered container */
+.bento-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.bento-block {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+.bento-block p,
+.bento-block ul {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Stack the hero on narrow screens */
+@media only screen and (max-width: 60em) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .hero-right {
+    max-width: 360px;
   }
 }

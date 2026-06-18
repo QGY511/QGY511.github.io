@@ -1,38 +1,37 @@
+// ┌┬┐┌─┐┌┐    ┌─┐┌─┐┬─┐┌─┐┬  ┬  ┌─┐┌─┐┬ ┬
+//  │ ├─┤├┴┐   └─┐│  ├┬┘│ ││  │  └─┐├─┘└┬┘
+//  ┴ ┴ ┴└─┘   └─┘└─┘┴└─└─┘┴─┘┴─┘└─┘┴   ┴
+// Highlight the nav link of whichever section is currently in view.
+
 document.addEventListener('DOMContentLoaded', () => {
-  const deactivateAllTabs = () => {
-    document.querySelectorAll('.topTab .tablinks').forEach(tab => tab.classList.remove('active'));
+  const links = Array.from(document.querySelectorAll('.topTab .tablinks'));
+  const sections = links
+    .map(link => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+
+  if (!sections.length) return;
+
+  const linkFor = (id) =>
+    links.find(link => link.getAttribute('href') === `#${id}`);
+
+  const activate = (id) => {
+    links.forEach(link => link.classList.remove('active'));
+    const link = linkFor(id);
+    if (link) link.classList.add('active');
   };
 
-  const activateTab = (tab) => {
-    deactivateAllTabs();
-    tab.classList.add('active');
-  };
-
-  // Enhance path comparison to handle different homepage scenarios
-  const isHomePage = (path) => {
-    const normalizedPath = path.endsWith('/') ? path : `${path}/`;
-    return ['/index.html/', '/'].includes(normalizedPath.toLowerCase());
-  };
-
-  // Determine the current page's path for comparison
-  const currentPagePath = `${window.location.pathname}/`.toLowerCase();
-
-  // Attempt to activate the tab corresponding to the current page or default to Home
-  let homeTab;
-  let activeTabSet = false;
-  document.querySelectorAll('.topTab .tablinks').forEach(tab => {
-    const tabPath = `${new URL(tab.href).pathname}/`.toLowerCase();
-    if (tabPath === currentPagePath || (isHomePage(currentPagePath) && tabPath.includes('index.html/'))) {
-      activateTab(tab);
-      activeTabSet = true;
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) activate(entry.target.id);
+      });
+    },
+    {
+      // Trigger when a section crosses the vertical middle of the viewport
+      rootMargin: '-50% 0px -50% 0px',
+      threshold: 0,
     }
-    if (tab.href.includes('index.html')) {
-      homeTab = tab; // Identify the Home tab for potential fallback activation
-    }
-  });
+  );
 
-  // Fallback to activating the Home tab if no specific tab was activated
-  if (!activeTabSet && homeTab) {
-    activateTab(homeTab);
-  }
+  sections.forEach(section => observer.observe(section));
 });

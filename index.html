@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Guanyu's Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guanyu Qian</title>
     <link rel="shortcut icon" type="image/png" href="assets/icons/logo.png" />
     <link rel="stylesheet" href="app.css" />
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -12,7 +13,7 @@
     ></script>
   </head>
 
-  <!-- 
+  <!--
       ╔╗ ╔═╗╔╗╔╔╦╗╔═╗
       ╠╩╗║╣ ║║║ ║ ║ ║
       ╚═╝╚═╝╝╚╝ ╩ ╚═╝
@@ -20,71 +21,214 @@
 
   <body class="">
     <div class="topTab">
-      <a href="index.html" class="tablinks">Home</a>
-      <a href="about.html" class="tablinks">About</a>
-      <a href="projects.html" class="tablinks">Projects</a>
-      <a href="contact.html" class="tablinks">Contact</a>
+      <a href="#home" class="navBrand">
+        <img src="assets/icons/logo.png" alt="" class="navLogo" />
+        <span>Guanyu Qian</span>
+      </a>
+
+      <nav class="navLinks">
+        <a href="#home" class="tablinks">Home</a>
+        <a href="#about" class="tablinks">About</a>
+        <a href="#projects" class="tablinks">Projects</a>
+        <a href="#contact" class="tablinks">Contact</a>
+      </nav>
 
       <button id="themeButton">
         <i id="themeIcon" icon-name="moon"></i>
       </button>
     </div>
 
-    <div class="container">
-      <div class="timeBlock">
-        <div class="clock">
-          <div id="hour"></div>
-          <div id="separator"></div>
-          <div id="minutes"></div>
-        </div>
-        <div id="greetings"></div>
-      </div>
+    <!-- ───────────────────────────── HOME ───────────────────────────── -->
+    <section id="home" class="page-section">
+      <div class="hero">
+        <div class="hero-left">
+          <div class="clock">
+            <div id="hour"></div>
+            <div id="separator"></div>
+            <div id="minutes"></div>
+          </div>
+          <div id="greetings"></div>
 
-      <div class="logoBlock">
-        <div class="logocard">
-          <a href="https://www.ucdavis.edu">
-            <img
-              src="assets/img/ucdavis.png"
-              alt="UC Davis logo"
-              class="logoImage"
-            />
-          </a>
+          <h1 class="section-title">Welcome!</h1>
+          <p class="lead">
+            I’m <strong>Guanyu Qian</strong>, a Ph.D. student in
+            <strong>Electrical &amp; Computer Engineering</strong> at
+            <span class="accent">UCLA</span>. I design power-electronics circuits
+            for high-speed, high-frequency power conversion in information and
+            data systems. I hold degrees in
+            <strong>Applied Physics</strong> and <strong>Economics</strong> from
+            UC Davis.
+          </p>
+
+          <p class="label">Research areas:</p>
+          <div class="pills">
+            <span class="pill">Power electronics</span>
+            <span class="pill">GaN power conversion</span>
+            <span class="pill">High-frequency DC–DC</span>
+            <span class="pill">Data-center power delivery</span>
+            <span class="pill">Magnetics &amp; TLVR</span>
+            <span class="pill">Control &amp; RL</span>
+          </div>
+
+          <div class="callout">
+            <span class="badge">NOW</span>
+            <p>
+              Working with <span class="accent">Dr. Xiaofan Cui</span> on
+              high-frequency power conversion — began my Ph.D. journey in
+              September 2024.
+            </p>
+          </div>
         </div>
-        <br />
-        <div class="logocard">
-          <a href="https://www.ucla.edu">
-            <img src="assets/img/ucla.png" alt="UCLA logo" class="logoImage" />
-          </a>
-        </div>
-      </div>
-      <!-- Date and Weather  -->
-      <div class="picBlock">
-        <div class="piccard">
-          <div class="profilePhoto">
-            <img src="assets/img/GY_p.png" alt="Profile Photo" />
+
+        <div class="hero-right">
+          <div class="profile-card">
+            <div class="profile-photo">
+              <img src="assets/img/GY_p.png" alt="Guanyu Qian" />
+            </div>
+            <h3 class="profile-name">Guanyu Qian</h3>
+            <p class="profile-title"><em>Ph.D. Student</em></p>
+            <p class="profile-affil">
+              Electrical &amp; Computer Engineering<br />
+              UCLA
+            </p>
+            <div class="profile-links" id="linksBlock">
+              <div id="linksBlockLeft"></div>
+              <div id="linksBlockRight"></div>
+            </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="linksBlock" id="linksBlock">
-        <div class="linksBlockLeft" id="linksBlockLeft"></div>
-        <div class="linksBlockRight" id="linksBlockRight"></div>
-      </div>
-
-      <div class="textBlock">
-        <div class="textcard">
+    <!-- ───────────────────────────── ABOUT ──────────────────────────── -->
+    <section id="about" class="page-section">
+      <div class="bento-container">
+        <div class="bento-block small">
+          <h2>Education</h2>
+          <ul>
+            <li>
+              <strong>Ph.D.</strong> in Electrical and Computer Engineering -
+              UCLA
+            </li>
+            <br />
+            <li>
+              <strong>B.A.Sc</strong>. in Applied Physics & Economics - UC Davis
+            </li>
+          </ul>
+        </div>
+        <div class="bento-block medium">
+          <h2>Skills</h2>
+          <ul>
+            <li>Good at drinking coffee</li>
+          </ul>
+        </div>
+        <div class="bento-block large">
+          <h2>Biography</h2>
           <p>
-            Welcome to my personal website! I’m currently pursuing a Ph.D. in
-            <em><strong>Electrical & Computer Engineering</strong></em> at UCLA.
-            I bring a diverse academic background, holding degrees in
-            <em><strong>Applied Physics</strong></em> and
-            <em><strong>Economics</strong></em> from UC Davis. <br /><br />
-            Explore my projects, research, and more as I continue this exciting
-            journey!
+            <strong>Guanyu Qian</strong> is originally from Beijing, China. He
+            received his Bachelor's degree in Applied Physics and Economics from
+            the University of California, Davis, in 2022. During his
+            undergraduate studies, he conducted research and experiments in
+            particle physics, including background radiation detection and muon
+            lifetime measurement. In 2024, he completed his Master's degree in
+            Electrical and Computer Engineering at the University of California,
+            Los Angeles.
+          </p>
+
+          <p>
+            Currently, he is a PhD student working with Dr. Xiaofan Cui on
+            designing power electronics circuits for high-speed, high-frequency
+            power conversion in information and data systems.
           </p>
         </div>
+
+        <div class="bento-block long">
+          <h2>News</h2>
+          <ul>
+            <li>09/2024 – Began my Ph.D. journey</li>
+            <li>
+              04/2024 – Selected as a Teaching Assistant for EC Engr 110:
+              Circuit Theory
+            </li>
+            <li>12/2023 – Launched this website</li>
+          </ul>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <!-- ──────────────────────────── PROJECTS ────────────────────────── -->
+    <section id="projects" class="page-section">
+      <div class="bento-container">
+        <div class="bento-block proj">
+          <h2>Project Title</h2>
+          <p>
+            <!-- TODO: replace with a short description of your first project. -->
+            Short description of the project, the problem it solves, and the
+            tools or techniques involved.
+          </p>
+        </div>
+
+        <div class="bento-block proj">
+          <h2>Project Title</h2>
+          <p>
+            <!-- TODO: replace with a short description of your second project. -->
+            Short description of the project, the problem it solves, and the
+            tools or techniques involved.
+          </p>
+        </div>
+
+        <div class="bento-block proj">
+          <h2>Project Title</h2>
+          <p>
+            <!-- TODO: replace with a short description of your third project. -->
+            Short description of the project, the problem it solves, and the
+            tools or techniques involved.
+          </p>
+        </div>
+
+        <div class="bento-block longR"></div>
+      </div>
+    </section>
+
+    <!-- ──────────────────────────── CONTACT ─────────────────────────── -->
+    <section id="contact" class="page-section">
+      <div class="bento-container">
+        <div class="bento-block medium">
+          <h2>Get in touch</h2>
+          <p>
+            Feel free to reach out about research, collaborations, or anything
+            power-electronics related.
+          </p>
+          <ul>
+            <li>
+              <i icon-name="mail"></i>
+              <a href="mailto:gyqian@ucla.edu">gyqian@ucla.edu</a>
+            </li>
+            <br />
+            <li><i icon-name="map-pin"></i> UCLA — Los Angeles, CA</li>
+          </ul>
+        </div>
+
+        <div class="bento-block small">
+          <h2>Elsewhere</h2>
+          <ul>
+            <li>
+              <i icon-name="github"></i>
+              <a href="https://github.com/QGY511" target="_blank">GitHub</a>
+            </li>
+            <br />
+            <li>
+              <i icon-name="briefcase"></i>
+              <a
+                href="https://sites.google.com/umich.edu/xiaofancui/people?authuser=0"
+                target="_blank"
+                >Research Lab</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
     <!-- Config  -->
     <script src="config.js"></script>
@@ -99,8 +243,7 @@
     <!-- Generators  -->
     <script src="assets/js/buttons.js"></script>
     <script src="assets/js/tab.js"></script>
-
-    <!-- <script src="assets/js/lists.js"></script> -->
+    <script src="assets/js/gallery.js"></script>
 
     <!-- Icons -->
     <script>
