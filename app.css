@@ -1097,18 +1097,15 @@ body {
 }
 
 /* Collapse all bento mosaics to a single column on narrow screens */
-@media only screen and (max-width: 48em) {
+/* Stack every bento section into a single, evenly spaced flex column */
+@media only screen and (max-width: 60em) {
   #about .bento-container,
   #projects .bento-container,
   #teams .bento-container,
   #contact .bento-container {
-    grid-template-columns: 1fr;
-  }
-  #about .bento-block,
-  #projects .bento-block,
-  #teams .bento-block,
-  #contact .bento-block {
-    grid-column: 1 / -1;
-    grid-row: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.25rem;
   }
 }
