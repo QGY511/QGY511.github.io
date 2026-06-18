@@ -955,6 +955,14 @@ body {
   line-height: 1.6;
 }
 
+/* Slight breathing room between News items */
+.bento-block.long li {
+  margin-bottom: 0.85rem;
+}
+.bento-block.long li:last-child {
+  margin-bottom: 0;
+}
+
 /* Section wrapper so a heading can sit above the card grid, aligned to it */
 .section-wrap {
   width: 100%;
