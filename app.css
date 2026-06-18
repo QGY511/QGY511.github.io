@@ -545,6 +545,24 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+.bento-block a {
+  color: var(--fg);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.bento-block a:hover {
+  color: var(--accent);
+}
+
+.bento-block li svg {
+  width: var(--fg-list);
+  height: var(--fg-list);
+  vertical-align: middle;
+  margin-right: 8px;
+  color: var(--fg);
+}
+
 /* Size variations */
 .bento-block.small {
   grid-column: span 1; /* Smaller blocks */
