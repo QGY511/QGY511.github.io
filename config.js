@@ -54,7 +54,7 @@ const CONFIG = {
 		{
 			id: '1',
 			name: 'Github',
-			icon: 'github',
+			icon: 'fa-brands fa-github',
 			link: 'https://github.com/QGY511',
 		},
 		{

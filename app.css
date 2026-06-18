@@ -75,14 +75,16 @@ body {
   background-color: var(--background);
 }
 
-/* Each former page is now a full-height scroll section */
+/* Each former page is now a scroll section sized to its content */
 .page-section {
   width: 100%;
-  min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding-top: 60px; /* clears the fixed top nav */
+  padding: 3rem 0; /* consistent vertical rhythm between sections */
+}
+
+#home.page-section {
+  padding-top: 6rem; /* extra clearance under the fixed nav */
 }
 
 .notransition {
@@ -752,9 +754,13 @@ body {
   display: grid;
   grid-template-columns: 1.6fr 1fr;
   gap: 2.5rem;
-  align-items: start;
+  align-items: stretch; /* let the profile column match the left column height */
 }
 .hero-left {
+  display: flex;
+  flex-direction: column;
+}
+.hero-right {
   display: flex;
   flex-direction: column;
 }
@@ -780,6 +786,10 @@ body {
 }
 .accent {
   color: var(--accent);
+  font-weight: 600;
+}
+.ucdavis {
+  color: #b8860b; /* UC Davis dark golden */
   font-weight: 600;
 }
 .label {
@@ -836,6 +846,9 @@ body {
 
 /* Profile card */
 .profile-card {
+  flex: 1; /* fill the right column so its bottom aligns with the callout */
+  display: flex;
+  flex-direction: column;
   border: 1px solid var(--border);
   border-radius: 12px;
   background-color: var(--cards);
@@ -844,8 +857,8 @@ body {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
 }
 .profile-photo {
+  flex: 1 1 220px; /* grow to fill spare height; never collapse below 220px */
   width: 100%;
-  aspect-ratio: 1 / 1;
   border-radius: 8px;
   overflow: hidden;
   margin-bottom: 1rem;
@@ -901,12 +914,31 @@ body {
   width: 1.1rem;
   height: 1.1rem;
 }
+/* Font Awesome (brand) icons inside the social buttons */
+.profile-links .button i[class*="fa-"] {
+  font-size: 1.1rem;
+  color: var(--fg);
+}
+.profile-links .button:hover i[class*="fa-"] {
+  color: #fff;
+}
+/* Font Awesome (brand) icons inside bento lists (e.g. Contact) */
+.bento-block li i[class*="fa-"] {
+  font-size: var(--fg-list);
+  margin-right: 8px;
+  color: var(--fg);
+  vertical-align: middle;
+}
 
 /* Bordered, subtly-shadowed bento cards + centered container */
+/* Match the hero width exactly and let height follow content */
 .bento-container {
+  width: 100%;
   max-width: 1100px;
+  height: auto;
   margin: 0 auto;
   padding: 0 2rem;
+  grid-auto-rows: minmax(110px, auto);
 }
 .bento-block {
   border: 1px solid var(--border);
@@ -919,6 +951,90 @@ body {
   line-height: 1.6;
 }
 
+/* Section wrapper so a heading can sit above the card grid, aligned to it */
+.section-wrap {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.section-wrap .bento-container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Bold section title shown above each section's cards */
+.section-heading {
+  position: relative;
+  display: inline-block;
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: var(--fg);
+  margin: 0 0 1.6rem 0;
+  padding-bottom: 0.45rem;
+  font-family: "Open Sans", sans-serif;
+}
+.section-heading::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 72px;
+  height: 3px;
+  background-color: var(--accent);
+  border-radius: 3px;
+}
+
+/* Per-section bento layouts (tidy, content-driven mosaics) */
+
+/* About: Education tall left, Skills + Biography stacked right, News full-width */
+#about .bento-block.small {
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 2;
+}
+#about .bento-block.medium {
+  grid-column: 2 / span 3;
+  grid-row: 1;
+}
+#about .bento-block.large {
+  grid-column: 2 / span 3;
+  grid-row: 2;
+}
+#about .bento-block.long {
+  grid-column: 1 / span 4;
+  grid-row: 3;
+}
+
+/* Projects: each card spans the full row, stacked */
+#projects .bento-container {
+  grid-template-columns: 1fr;
+}
+#projects .bento-block.proj {
+  grid-column: 1 / -1;
+  grid-row: auto;
+}
+
+/* Teams: three equal cards in a row */
+#teams .bento-container {
+  grid-template-columns: repeat(3, 1fr);
+}
+#teams .bento-block.proj {
+  grid-column: span 1;
+  grid-row: auto;
+}
+
+/* Contact: two equal cards side by side */
+#contact .bento-container {
+  grid-template-columns: repeat(2, 1fr);
+}
+#contact .bento-block.medium,
+#contact .bento-block.small {
+  grid-column: span 1;
+  grid-row: auto;
+}
+
 /* Stack the hero on narrow screens */
 @media only screen and (max-width: 60em) {
   .hero {
@@ -927,5 +1043,22 @@ body {
   }
   .hero-right {
     max-width: 360px;
+  }
+}
+
+/* Collapse all bento mosaics to a single column on narrow screens */
+@media only screen and (max-width: 48em) {
+  #about .bento-container,
+  #projects .bento-container,
+  #teams .bento-container,
+  #contact .bento-container {
+    grid-template-columns: 1fr;
+  }
+  #about .bento-block,
+  #projects .bento-block,
+  #teams .bento-block,
+  #contact .bento-block {
+    grid-column: 1 / -1;
+    grid-row: auto;
   }
 }

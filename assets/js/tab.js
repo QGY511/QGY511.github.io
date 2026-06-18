@@ -1,8 +1,3 @@
-// ┌┬┐┌─┐┌┐    ┌─┐┌─┐┬─┐┌─┐┬  ┬  ┌─┐┌─┐┬ ┬
-//  │ ├─┤├┴┐   └─┐│  ├┬┘│ ││  │  └─┐├─┘└┬┘
-//  ┴ ┴ ┴└─┘   └─┘└─┘┴└─└─┘┴─┘┴─┘└─┘┴   ┴
-// Highlight the nav link of whichever section is currently in view.
-
 document.addEventListener('DOMContentLoaded', () => {
   const links = Array.from(document.querySelectorAll('.topTab .tablinks'));
   const sections = links
