@@ -1024,6 +1024,19 @@ body {
   color: var(--sfg);
 }
 
+/* Heading for a subsection within a section (e.g. Teams groups) */
+.subsection-heading {
+  margin: 2.4rem 0 1.2rem 0;
+  padding-left: 0.6rem;
+  border-left: 3px solid var(--accent);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--fg);
+}
+.section-heading + .subsection-heading {
+  margin-top: 0.5rem; /* tighten the first subsection under the section title */
+}
+
 /* Closing quote at the bottom of a section */
 .section-quote {
   margin: 2.5rem 0 0 0;
@@ -1083,6 +1096,25 @@ body {
 #teams .bento-block.proj {
   grid-column: span 1;
   grid-row: auto;
+}
+
+/* Centered member cards with a round placeholder photo */
+#teams .bento-block {
+  text-align: center;
+}
+#teams .bento-block h2::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.member-photo {
+  display: block;
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 0.9rem;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #fff;
+  border: 1px solid var(--border);
 }
 
 /* Contact: two equal cards side by side */
