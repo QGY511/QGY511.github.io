@@ -779,6 +779,32 @@ body {
 .hero .clock {
   justify-content: flex-start;
 }
+/* Upper hero: clock + greeting + Welcome on the left, signature centered on the right */
+.intro {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+.intro-col {
+  display: flex;
+  flex-direction: column;
+}
+.name-wrap {
+  flex: 1; /* take the blank space next to the clock */
+  display: flex;
+  justify-content: center; /* center the signature in that space */
+  align-items: center;
+  min-width: 0;
+}
+.name-signature {
+  height: 4rem;
+  max-width: 100%;
+  width: auto;
+}
+/* Calligraphy is black ink — flip to white on the dark theme */
+.darktheme .name-signature {
+  filter: invert(1);
+}
 .hero #hour,
 .hero #separator,
 .hero #minutes {

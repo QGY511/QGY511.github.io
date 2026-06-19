@@ -23,6 +23,6 @@ const greetingMessage =
 // Wrap greeting, name, and the additional sentence in a div for styling
 document.getElementById(
   "greetings"
-).innerHTML = `<div>${greetingMessage}<br><span>${name}</span></div>`;
+).innerHTML = `<div>${greetingMessage}</div>`;
 
 //Chnaged on Jan 30,2024
