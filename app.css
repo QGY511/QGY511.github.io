@@ -1143,6 +1143,35 @@ body {
   border: 1px solid var(--border);
 }
 
+/* Full-width row card: photo on the left, description on the right */
+#teams .bento-container.row-layout {
+  grid-template-columns: 1fr;
+}
+#teams .row-layout .bento-block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: left;
+}
+#teams .row-layout .member-photo {
+  flex: 0 0 auto;
+  width: 120px;
+  height: 120px;
+  margin: 0;
+}
+#teams .row-layout .member-info {
+  flex: 1;
+  min-width: 0;
+}
+#teams .row-layout .bento-block h2 {
+  margin-top: 0;
+}
+#teams .row-layout .bento-block h2::after {
+  left: 0;
+  transform: none;
+}
+
 /* Contact: two equal cards side by side */
 #contact .bento-container {
   grid-template-columns: repeat(2, 1fr);
