@@ -608,7 +608,8 @@ body {
 
 .bento-block a {
   color: var(--fg);
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 2px;
   font-weight: bold;
 }
 
