@@ -830,6 +830,14 @@ body {
   color: var(--fg);
   margin-bottom: 1.5rem;
 }
+.lead a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.lead a:hover {
+  color: var(--accent);
+}
 .accent {
   color: var(--accent);
   font-weight: 600;

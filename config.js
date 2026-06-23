@@ -79,7 +79,7 @@ const CONFIG = {
 			id: '5',
 			name: 'Google Scholar',
 			icon: 'graduation-cap',
-			link: 'https://scholar.google.com/',
+			link: 'https://scholar.google.com/citations?user=6jr3l3gAAAAJ&hl=en',
 		},
 		{
 			id: '6',
