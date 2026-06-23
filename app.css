@@ -898,6 +898,26 @@ body {
   color: var(--fg);
 }
 
+/* Quote below the hero — spans the full width as its own row */
+.bio-quote {
+  grid-column: 1 / -1;
+  margin: 1.8rem 0 0 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--accent);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--sfg);
+}
+.bio-quote a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.bio-quote a:hover {
+  color: var(--accent);
+}
+
 /* Profile card */
 .profile-card {
   flex: 1; /* fill the right column so its bottom aligns with the callout */
