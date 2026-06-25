@@ -84,7 +84,8 @@ body {
 }
 
 #home.page-section {
-  padding-top: 6rem; /* extra clearance under the fixed nav */
+  /* bar height (60px) + the same 3rem gap every other section has */
+  padding-top: calc(60px + 3rem);
 }
 
 .notransition {
@@ -900,18 +901,61 @@ body {
 }
 
 /* Quote below the hero — spans the full width as its own row */
+.gratitude {
+  grid-column: 1 / -1;
+  scroll-margin-top: 3rem; /* land below the bar like other sections */
+}
+.quote-title {
+  position: relative;
+  margin: 0 0 1.6rem 0; /* same heading→content gap as other sections */
+  padding-bottom: 0.45rem;
+  font-size: 2.1rem; /* match the other section headings */
+  font-weight: 800;
+  color: var(--fg);
+}
+.quote-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 72px;
+  height: 3px;
+  background-color: var(--accent);
+  border-radius: 3px;
+}
+.quote-title + .bio-quote {
+  margin-top: 0; /* heading already provides the spacing */
+}
+
 .bio-quote {
   grid-column: 1 / -1;
-  margin: 1.8rem 0 0 0;
-  padding-left: 1rem;
+  margin: 2rem 0 0 0;
+  padding: 1.6rem 1.9rem;
+  background: var(--cards);
+  border: 1px solid var(--border);
   border-left: 3px solid var(--accent);
-  font-style: italic;
-  font-size: 1.05rem;
-  line-height: 1.6;
+  border-radius: 10px;
+  color: var(--fg);
+}
+.bio-quote p {
+  margin: 0 0 1rem 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.08rem;
+  line-height: 1.8;
   color: var(--sfg);
+}
+.bio-quote p:last-child {
+  margin-bottom: 0;
+}
+.bio-quote p:first-child {
+  font-weight: 700;
+  font-size: 1.18rem;
+  line-height: 1.5;
+  color: var(--fg); /* lead-in line stands out */
 }
 .bio-quote a {
   color: inherit;
+  font-family: inherit;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
